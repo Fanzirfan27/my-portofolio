@@ -23,7 +23,7 @@
       "dest": "/public/$1/$2"
     },
     {
-      "src": "/(cv irfan.pdf|2331730074.png|favicon.ico|robots.txt)",
+      "src": "/(cv-irfan.pdf|2331730074.png|favicon.ico|robots.txt)",
       "dest": "/public/$1"
     },
     {

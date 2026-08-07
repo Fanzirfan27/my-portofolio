@@ -15,7 +15,7 @@ export const personalInfo = {
     location: 'Indonesia',
     github: 'https://github.com/Fanzirfan27',
     linkedin: 'https://www.linkedin.com/in/muhammad-irfan-nuril-anwar-1185252ba/',
-    cvUrl: '/cv irfan.pdf',
+    cvUrl: '/cv-irfan.pdf',
     avatar: '/2331730074.png',
 };
 
