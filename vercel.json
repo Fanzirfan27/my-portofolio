@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(build|icons|projects)/(.*)",
+      "dest": "/public/$1/$2"
+    },
+    {
+      "src": "/(cv irfan.pdf|2331730074.png|favicon.ico|robots.txt)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ]
+}
