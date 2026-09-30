@@ -1,8 +1,9 @@
 {
   "version": 2,
   "framework": null,
+  "outputDirectory": "public",
   "functions": {
-    "api/*.php": {
+    "api/index.php": {
       "runtime": "vercel-php@0.7.2"
     }
   },
@@ -22,10 +23,18 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.php"
+      "src": "/(build|icons|projects)/(.*)",
+      "dest": "/public/$1/$2"
+    },
+    {
+      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|pdf|txt))$",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
     }
   ]
 }
