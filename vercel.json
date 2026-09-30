@@ -2,7 +2,7 @@
   "version": 2,
   "framework": null,
   "functions": {
-    "api/index.php": {
+    "api/*.php": {
       "runtime": "vercel-php@0.7.2"
     }
   },
@@ -22,18 +22,10 @@
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(build|icons|projects)/(.*)",
-      "dest": "/public/$1/$2"
-    },
-    {
-      "src": "/(cv-irfan.pdf|2331730074.png|favicon.ico|robots.txt)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
+      "source": "/(.*)",
+      "destination": "/api/index.php"
     }
   ]
 }
