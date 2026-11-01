@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowDown, Mail, Download, Eye, MessageCircle, Code2, Terminal, Braces } from 'lucide-react';
+import { ArrowDown, Mail, Download, Eye, MessageCircle, Code2, Terminal, Braces, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../Components/Icons';
 import { personalInfo } from '../data/portfolioData';
 
@@ -93,12 +93,14 @@ export default function Hero() {
             </div>
 
             {/* Code Snippet Decoration */}
-            <div className="absolute top-40 right-[8%] hidden xl:block opacity-20 rotate-6">
-                <div className="code-block p-4 rounded-xl" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
-                    <span className="comment">{'// Building something amazing'}</span><br />
-                    <span className="keyword">const</span> <span className="variable">developer</span> <span className="bracket">=</span> <span className="bracket">{'{'}</span><br />
-                    <span className="ml-4">  <span className="function">name</span>: <span className="string">"Irfan"</span>,</span><br />
-                    <span className="ml-4">  <span className="function">passion</span>: <span className="string">"code"</span></span><br />
+            <div className="absolute top-40 right-[8%] hidden xl:block opacity-25 rotate-6 transition-all duration-300 hover:opacity-80 hover:rotate-0">
+                <div className="code-block p-4 rounded-xl text-xs font-mono" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', backdropFilter: 'blur(8px)' }}>
+                    <span className="comment">{'// Full-Stack & Mobile Engineer'}</span><br />
+                    <span className="keyword">const</span> <span className="variable">engineer</span> <span className="bracket">=</span> <span className="bracket">{'{'}</span><br />
+                    <span className="ml-4">  <span className="function">name</span>: <span className="string">"Irfan Nuril"</span>,</span><br />
+                    <span className="ml-4">  <span className="function">stack</span>: <span className="bracket">[</span><span className="string">"Laravel"</span>, <span className="string">"React"</span>, <span className="string">"Kotlin"</span><span className="bracket">]</span>,</span><br />
+                    <span className="ml-4">  <span className="function">mindset</span>: <span className="string">"Scalable & Impactful"</span>,</span><br />
+                    <span className="ml-4">  <span className="function">status</span>: <span className="string">"Available for Work"</span></span><br />
                     <span className="bracket">{'}'}</span>;
                 </div>
             </div>
@@ -238,15 +240,24 @@ export default function Hero() {
             {/* Main Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
                 <div className="max-w-3xl">
-                    {/* Greeting */}
-                    <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-                        <span className="text-sm sm:text-base font-medium" style={{ color: 'var(--text-secondary)' }}>
-                            Hello, I'm
+                    {/* Status Pill & Greeting */}
+                    <div className="animate-fade-in-up flex items-center gap-3 flex-wrap" style={{ animationDelay: '0ms' }}>
+                        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold"
+                            style={{
+                                background: 'rgba(16, 185, 129, 0.1)',
+                                color: '#34d399',
+                                border: '1px solid rgba(16, 185, 129, 0.25)',
+                            }}>
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            Available for New Opportunities
+                        </span>
+                        <span className="text-xs sm:text-sm font-medium tracking-wide uppercase" style={{ color: 'var(--text-tertiary)' }}>
+                            Full-Stack &amp; Mobile Engineer
                         </span>
                     </div>
 
                     {/* Name */}
-                    <div className="animate-fade-in-up mt-2" style={{ animationDelay: '150ms' }}>
+                    <div className="animate-fade-in-up mt-3" style={{ animationDelay: '150ms' }}>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight">
                             <span className="gradient-text">{personalInfo.name}</span>
                         </h1>
@@ -259,17 +270,17 @@ export default function Hero() {
                             style={{
                                 backgroundColor: 'rgba(99, 102, 241, 0.1)',
                                 color: 'var(--color-accent-light)',
-                                border: '1px solid rgba(99, 102, 241, 0.2)',
+                                border: '1px solid rgba(99, 102, 241, 0.25)',
                             }}
                         >
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <Sparkles size={15} className="text-indigo-400" />
                             {personalInfo.role}
                         </span>
                     </div>
 
                     {/* Headline */}
                     <div className="animate-fade-in-up mt-6" style={{ animationDelay: '450ms' }}>
-                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold leading-snug" style={{ color: 'var(--text-primary)' }}>
                             {personalInfo.headline}
                         </h2>
                     </div>

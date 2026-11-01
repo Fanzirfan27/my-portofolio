@@ -1,9 +1,8 @@
 import React from 'react';
 import SectionTitle from '../Components/SectionTitle';
 import ProjectCard from '../Components/ProjectCard';
-import { projects } from '../data/portfolioData';
 
-export default function Projects() {
+export default function Projects({ projects = [] }) {
     return (
         <section id="projects" className="py-20 lg:py-28" style={{ backgroundColor: 'var(--bg-secondary)' }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

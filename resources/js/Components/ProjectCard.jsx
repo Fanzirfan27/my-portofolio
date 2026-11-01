@@ -8,11 +8,18 @@ export default function ProjectCard({ project, index = 0 }) {
     const categoryColors = {
         'Web & Mobile Application': { bg: 'rgba(99, 102, 241, 0.1)', text: '#818cf8', border: 'rgba(99, 102, 241, 0.2)' },
         'Web Application': { bg: 'rgba(6, 182, 212, 0.1)', text: '#22d3ee', border: 'rgba(6, 182, 212, 0.2)' },
-        'AI / Machine Learning': { bg: 'rgba(16, 185, 129, 0.1)', text: '#34d399', border: 'rgba(16, 185, 129, 0.2)' },
+        'Desktop Application': { bg: 'rgba(168, 85, 247, 0.1)', text: '#a78bfa', border: 'rgba(168, 85, 247, 0.2)' },
         'Point of Sale': { bg: 'rgba(245, 158, 11, 0.1)', text: '#fbbf24', border: 'rgba(245, 158, 11, 0.2)' },
     };
 
     const colors = categoryColors[project.category] || categoryColors['Web Application'];
+    const isPrivate = Boolean(
+        project.is_private === true ||
+        project.is_private === 1 ||
+        project.is_private === '1' ||
+        project.is_private === 'true' ||
+        project.isPrivate === true
+    );
 
     return (
         <ScrollReveal delay={index * 100}>
@@ -79,7 +86,7 @@ export default function ProjectCard({ project, index = 0 }) {
 
                     {/* Tech Badges */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tech.map((t) => (
+                        {(project.tech || []).map((t) => (
                             <span
                                 key={t}
                                 className="text-xs font-medium px-2.5 py-1 rounded-lg"
@@ -109,33 +116,49 @@ export default function ProjectCard({ project, index = 0 }) {
                             View Details <ArrowRight size={14} />
                         </Link>
 
-                        {project.github && (
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-indigo-400"
-                                style={{ color: 'var(--text-secondary)' }}
+                        {isPrivate ? (
+                            <span
+                                className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg opacity-85 cursor-not-allowed select-none"
+                                style={{
+                                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                                    border: '1px solid rgba(245, 158, 11, 0.25)',
+                                    color: '#fbbf24',
+                                }}
+                                title="Repository bersifat private"
                             >
-                                <GithubIcon size={14} /> {project.githubBackend ? 'GitHub (Mobile)' : 'GitHub'}
-                            </a>
+                                <Lock size={12} className="text-amber-400" /> Private Repository 🔒
+                            </span>
+                        ) : (
+                            <>
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-indigo-400"
+                                        style={{ color: 'var(--text-secondary)' }}
+                                    >
+                                        <GithubIcon size={14} /> {project.github_backend ? 'GitHub (Mobile)' : 'GitHub'}
+                                    </a>
+                                )}
+
+                                {project.github_backend && (
+                                    <a
+                                        href={project.github_backend}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-indigo-400"
+                                        style={{ color: 'var(--text-secondary)' }}
+                                    >
+                                        <GithubIcon size={14} /> GitHub (API Backend)
+                                    </a>
+                                )}
+                            </>
                         )}
 
-                        {project.githubBackend && (
+                        {project.live_demo && (
                             <a
-                                href={project.githubBackend}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-indigo-400"
-                                style={{ color: 'var(--text-secondary)' }}
-                            >
-                                <GithubIcon size={14} /> GitHub (API Backend)
-                            </a>
-                        )}
-
-                        {project.liveDemo && (
-                            <a
-                                href={project.liveDemo}
+                                href={project.live_demo}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-emerald-400"
@@ -143,13 +166,6 @@ export default function ProjectCard({ project, index = 0 }) {
                             >
                                 <ExternalLink size={14} /> Live Demo
                             </a>
-                        )}
-
-                        {project.isPrivate && !project.github && (
-                            <span className="inline-flex items-center gap-1.5 text-xs font-medium"
-                                style={{ color: 'var(--text-tertiary)' }}>
-                                <Lock size={12} /> Private Repository 🔒
-                            </span>
                         )}
                     </div>
                 </div>

@@ -1,0 +1,736 @@
+Informasi Dasar
+Judul Project
+*
+Nama project...
+Deskripsi Singkat
+Deskripsi singkat project...
+Kategori
+*
+Pilih kategori
+Role
+Fullstack Developer
+Status
+Completed
+Tahun
+2026
+Durasi
+3 Bulan
+Detail Project
+Overview
+Deskripsi lengkap tentang project...
+Problem
+Masalah yang diselesaikan...
+Solution
+Solusi yang diterapkan...
+Tech Stack & Features
+Tech Stack
+Laravel, MySQL, Kotlin, REST API (pisahkan dengan koma)
+Features (satu per baris)
+Fitur 1
+Fitur 2
+Fitur 3
+Project Image
+Klik untuk upload gambar
+Atau URL Gambar
+/projects/image.png
+Links
+GitHub
+https://github.com/...
+GitHub Backend
+https://github.com/...
+Live Demo
+https://...
+Settings
+Sort Order
+0
+Private Project
+Posyandu 
+Informasi Dasar
+Judul Project
+text
+Sistem Informasi Pencatatan & Monitoring Kesehatan Posyandu
+(Alternatif jika ingin ringkas: Posyandu Health Record Management System)
+Deskripsi Singkat
+text
+Aplikasi web manajemen posyandu berbasis Laravel 11 dan MySQL untuk mendigitalkan pendataan anggota (balita & lansia), riwayat rekam pemeriksaan berkala, serta otomatisasi ekspor laporan ke Excel dan Word.
+Kategori
+text
+Web Development / Sistem Informasi / Healthcare
+(Pilih salah satu opsi dropdown yang tersedia di platform portofolio Anda, misalnya: Web Development atau Fullstack Web)
+Role
+text
+Fullstack Developer
+Status
+text
+Completed
+Tahun
+text
+2024
+(Catatan: jika form mewajibkan tahun saat ini, gunakan 2026 sesuai pengaturan form Anda)
+Durasi
+text
+2 Bulan
+Detail Project
+Overview
+text
+Sistem Informasi Pencatatan Posyandu adalah aplikasi berbasis web yang dirancang untuk mendigitalkan dan mengoptimalkan seluruh alur kerja operasional posyandu pada tingkat desa/kelurahan. Aplikasi ini menerapkan sistem Role-Based Access Control (RBAC) dengan 2 peran utama: Administrator dan Petugas. 
+Sistem ini memfasilitasi pendataan terpadu bagi kategori peserta (Balita dan Lanjut Usia), pencatatan rekam kesehatan berkala (berat badan, tinggi badan, tensi darah, kolesterol, dll.), hingga penyusunan laporan rekapitulasi data kunjungan secara otomatis dalam format Excel dan Word.
+Problem
+text
+- Proses pencatatan data registrasi peserta dan riwayat kesehatan posyandu masih dilakukan secara konvensional di buku register fisik.
+- Tingginya risiko kehilangan data, kerusakan buku rekam medik, duplikasi identitas peserta, dan lambatnya proses pencarian riwayat kesehatan anggota.
+- Petugas posyandu membutuhkan waktu dan tenaga ekstra yang memakan waktu berhari-hari saat membuat rekapitulasi laporan bulanan untuk diserahkan ke Puskesmas.
+Solution
+text
+- Membangun aplikasi web terpusat dengan basis data relasional MySQL yang aman, terstruktur, dan mudah diakses secara cepat.
+- Menerapkan Role-Based Authentication yang memisahkan hak akses antara Petugas Lapangan (entri data peserta dan pencatatan kesehatan) dan Admin (pengelolaan master data dan jenis pemeriksaan kesehatan).
+- Mengintegrasikan modul export data otomatis ke format Microsoft Excel (.xlsx) dan Microsoft Word (.docx) sehingga rekapitulasi laporan dapat diunduh secara instan dan akurat.
+- Mendesain antarmuka responsif menggunakan template AdminLTE dan DataTables untuk memudahkan pencarian cepat, filtering, serta notifikasi interaktif menggunakan SweetAlert2.
+Tech Stack & Features
+Tech Stack (pisahkan dengan koma)
+text
+Laravel 11, PHP 8.2, MySQL, JavaScript, Blade, Bootstrap 5, AdminLTE, Tailwind CSS, DataTables, SweetAlert2, Maatwebsite Excel, PhpOffice PHPWord
+Features (satu per baris)
+text
+Autentikasi Multi-Role & Otorisasi Pengguna (Admin dan Petugas)
+Manajemen Master Data Anggota Posyandu (Kategori Balita & Lansia)
+Pencatatan Rekam Medis & Riwayat Pemeriksaan Kesehatan Berkala
+Manajemen Kustomisasi Jenis Pemeriksaan Kesehatan
+Dashboard Statistik dan Monitoring Aktivitas Posyandu
+Pencarian Cepat, Pengurutan, dan Paginasi Data dengan DataTables
+Ekspor Rekapitulasi Laporan Pemeriksaan Kesehatan ke Microsoft Excel (.xlsx)
+Ekspor Rekapitulasi Laporan Pemeriksaan Kesehatan ke Microsoft Word (.docx)
+Notifikasi Interaktif dan Konfirmasi Aksi berbasis SweetAlert2
+Manajemen Profil Akun Pengguna dan Keamanan Sesi
+Project Image
+Atau URL Gambar
+text
+/projects/posyandu-system.png
+(Asset gambar asli yang sudah tersedia di folder proyek Anda bisa diambil dari: 
+public/gambar/posyandu.jpg
+ atau 
+public/gambar/gambar.jpg
+)
+Links
+GitHub
+text
+https://github.com/username/Project-Pencatatan-Posyandu
+(Ganti username dengan username akun GitHub Anda)
+GitHub Backend
+text
+https://github.com/username/Project-Pencatatan-Posyandu
+(Bisa disamakan atau dikosongkan karena proyek ini menggunakan arsitektur monolitik Laravel Blade)
+Live Demo
+text
+https://drive.google.com/file/d/1oazPPKuRSihJqGgtEH3ukz7mwZsrX9JR/view?usp=drive_link
+(Tautan Google Drive User Manual / demo video yang tercantum pada dokumentasi proyek)
+Settings
+Sort Order
+text
+1
+Private Project
+text
+Tidak / Uncheck (Biarkan Public)
+Gethuk dhoho pos 
+1. Informasi Dasar
+Judul Project:
+text
+Sistem Manajemen Stok & POS Terintegrasi Resep (BOM) UMKM Gethuk Pisang
+(Alternatif lebih ringkas: Gethuk Pisang Inventory & Point of Sales System)
+Deskripsi Singkat:
+text
+Aplikasi web manajemen inventaris dan kasir (POS) berbasis Bill of Materials (BOM) untuk memantau stok bahan baku, resep produksi, estimasi HPP, dan transaksi penjualan secara otomatis dan real-time.
+Kategori:
+text
+Web Application / ERP & Inventory System
+(Pilihan dropdown biasanya: Web Development, Fullstack Project, atau Information System)
+Role:
+text
+Fullstack Developer
+Status:
+text
+Completed
+Tahun:
+text
+2025 / 2026
+Durasi:
+text
+3 Bulan
+2. Detail Project
+Overview:
+text
+Sistem Manajemen Stok & Kasir Gethuk Pisang adalah aplikasi terpadu yang dirancang untuk mendigitalkan proses operasional bisnis kuliner tradisional/oleh-oleh (UMKM Gethuk Pisang Dhoho). 
+Aplikasi ini mengintegrasikan modul Point of Sales (POS) kasir dengan sistem manajemen persediaan bahan baku menggunakan konsep Bill of Materials (BOM / Resep). Setiap penjualan varian gethuk pisang atau produk olahan secara otomatis memotong stok bahan baku mentah (seperti pisang raja nangka, gula, daun pisang, dan kemasan) sesuai proporsi resep. Sistem juga menyediakan perhitungan estimasi Harga Pokok Penjualan (HPP), riwayat pergerakan stok (stock movements), serta pencetakan struk transaksi berbasis PDF.
+Problem:
+text
+1. Pencatatan stok bahan baku dan penjualan masih dilakukan manual/konvensional, rawan selisih fisik barang dan rentan human error.
+2. Kesulitan melacak sisa bahan mentah yang terpakai saat produksi berbagai varian produk, sehingga sering terjadi kekosongan bahan mendadak atau bahan kadaluarsa.
+3. Perhitungan estimasi HPP (Harga Pokok Penjualan) tidak akurat akibat fluktuasi harga beli bahan baku.
+4. Proses transaksi kasir dan pencetakan bukti bayar pelanggan memakan waktu serta belum terarsip rapi dalam database.
+Solution:
+text
+1. Membangun modul Recipe Management (Bill of Materials) dinamis yang menghubungkan produk jadi dengan komposisi bahan mentah beserta takaran satuannya.
+2. Menerapkan mekanisme pemotongan stok otomatis (Automatic Stock Deduction) dan audit pergerakan stok (Stock Movements: purchase, usage, adjustment, return) setiap transaksi kasir berhasil.
+3. Fitur kalkulasi estimasi HPP otomatis secara real-time berdasarkan harga beli bahan baku terkini.
+4. Mengembangkan antarmuka Kasir (POS) interaktif dan responsif berbasis Laravel Livewire untuk pencarian produk cepat, pengelolaan keranjang, multi-metode pembayaran, dan cetak struk PDF instan.
+5. Menerapkan Role-Based Access Control (RBAC) yang memisahkan hak akses antara Super Admin (master data, resep, manajemen stok) dan Kasir (penjualan & riwayat transaksi).
+3. Tech Stack & Features
+Tech Stack: (Pisahkan dengan koma)
+text
+Laravel 12, Livewire 3, Tailwind CSS, MySQL, PHP 8.2+, DomPDF, Alpine.js, Blade
+Features: (Satu baris per fitur)
+text
+Autentikasi & Multi-Role Access Control (Super Admin & Kasir)
+Dashboard Metrik Penjualan & Ringkasan Operasional Real-Time
+Manajemen Master Data Satuan (Units) & Bahan Baku (Raw Materials)
+Katalog Produk Jadi & Penentuan Harga Jual
+Recipe / Bill of Materials (BOM) Editor Dinamis per Produk
+Kalkulator Estimasi HPP Otomatis Berdasarkan Komposisi Resep
+Sistem Kasir (Point of Sales) Interaktif dengan Keranjang Belanja Dinamis
+Pengurangan Stok Bahan Baku Otomatis Berdasarkan Resep Produk Terjual
+Pencatatan Riwayat Mutasi Stok (Stock Movements & Audit Logs)
+Dukungan Multi-Metode Pembayaran (Tunai, EDC, Transfer, E-Wallet)
+Generate dan Cetak Struk Pembelian Format PDF
+Fitur Void Transaksi dan Edit Riwayat Penjualan untuk Kasir
+4. Project Image & Links
+URL Gambar:
+text
+/projects/gethuk-pisang-pos.png
+(Bisa upload screenshot layar kasir /kasir/transaksi atau layar editor resep /products/{id}/recipe)
+GitHub:
+text
+https://github.com/username-anda/manajemen-stock-gethuk-pisang
+GitHub Backend:
+text
+(Kosongkan jika repository frontend dan backend menyatu dalam Laravel monolith ini)
+Live Demo:
+text
+https://gethuk-pisang.yourdomain.com (atau kosongkan jika belum dideploy)
+Settings:
+Sort Order: 1 (atau sesuaikan urutan prioritas tampilan Anda)
+Private Project: Unchecked (publik) jika ingin ditampilkan di profil portofolio Anda.
+Reservasi gor 
+Judul Project
+text
+Sistem Informasi Reservasi Lapangan GOR Jayabaya Berbasis Web
+(Alternatif lebih singkat: Sistem Reservasi GOR Jayabaya Kediri)
+Deskripsi Singkat
+text
+Aplikasi web reservasi dan manajemen penyewaan sarana lapangan olahraga multi-cabang (Futsal, Basket, dan Voli) di GOR Jayabaya Kediri dengan validasi jadwal anti-bentrok, dynamic slot pricing, verifikasi transfer, unduh bukti PDF, dan rekapitulasi laporan pendapatan ekspor Excel.
+Kategori
+text
+Web Application
+(Opsi lain di dropdown form: Fullstack Web Development / Sistem Informasi)
+Role
+text
+Fullstack Developer
+Status
+text
+Completed
+Tahun
+text
+2025
+(Atau isi 2026 jika portofolio Anda menggunakan tahun rilisan/penyelesaian saat ini)
+Durasi
+text
+3 Bulan
+Detail Project
+Overview
+text
+Sistem Informasi Reservasi Lapangan GOR Jayabaya adalah platform berbasis web modern yang dibangun untuk mendigitalkan proses pemesanan lapangan olahraga di kompleks GOR Jayabaya Kediri. Sistem ini mencakup sarana lapangan Futsal, Basket, dan Bola Voli. 
+Dibangun dengan arsitektur MVC menggunakan Laravel 12 dan basis data MySQL, aplikasi ini mengintegrasikan dua portal utama: portal pengguna (user) untuk memeriksa ketersediaan jam sewa secara real-time, melakukan booking, mengunggah bukti pembayaran, serta mengunduh tiket/invoice berformat PDF; dan portal administrator untuk mengelola master data lapangan, mengatur tarif dinamis sesuai rentang jam (peak & off-peak hours), memvalidasi pembayaran masuk, memantau ringkasan performa lewat dashboard analitik visual, hingga merekapitulasi laporan pendapatan berkala yang dapat diekspor langsung ke format Microsoft Excel.
+Problem
+text
+1. Proses penyewaan lapangan masih bergantung pada pencatatan manual dan pemesanan via chat atau datang langsung ke lokasi, sehingga rawan terjadi jadwal ganda (double-booking).
+2. Pelanggan kesulitan mengetahui jadwal ketersediaan lapangan secara cepat tanpa harus menghubungi pihak pengelola satu per satu.
+3. Struktur tarif sewa lapangan yang bervariasi antara sesi siang dan sesi malam sering menimbulkan inkonsistensi kalkulasi total biaya sewa.
+4. Pengelola GOR membutuhkan waktu lama untuk merekapitulasi transaksi harian dan bulanan secara manual, meningkatkan risiko selisih pembukuan keuangan dan minimnya visibilitas tren okupansi sarana.
+Solution
+text
+1. Menerapkan algoritma validasi overlap time-range pada basis data untuk menjamin tidak ada dua jadwal reservasi yang bertabrakan di lapangan dan jam yang sama.
+2. Menyediakan katalog lapangan olahraga interaktif lengkap dengan sistem Dynamic Slot Pricing yang secara otomatis menghitung total harga sewa berdasarkan durasi dan interval waktu pemakaian.
+3. Membangun portal pengguna mandiri yang dilengkapi fitur pelacakan status pesanan dinamis (Pending, Approved, Done, Rejected), unggah bukti transfer pembayaran, serta pencetakan bukti reservasi resmi berformat PDF menggunakan Laravel DomPDF.
+4. Mengembangkan panel admin komprehensif yang dilengkapi dashboard analitik pendapatan mingguan & bulanan, verifikasi pembayaran bertahap, serta generator laporan pendapatan otomatis dengan filter tanggal dan fitur ekspor data ke Excel (.xlsx) via Maatwebsite Excel.
+Tech Stack & Features
+Tech Stack
+text
+Laravel 12, PHP 8.2, MySQL, Tailwind CSS, Alpine.js, Blade, Vite, DomPDF, Maatwebsite Excel, Lucide Icons, AOS Library
+Features (satu per baris)
+text
+Landing Page Interaktif dengan Animasi Scroll & Informasi Operasional GOR
+Autentikasi Multi-Role Berbasis Middleware (Administrator & User/Penyewa)
+Katalog Lapangan Multi-Cabang Olahraga (Futsal, Basket, dan Voli)
+Dynamic Time-Slot Pricing (Penyesuaian Tarif Jam Reguler & Jam Malam/Peak Hour)
+Sistem Pemesanan Lapangan Real-Time dengan Validasi Pencegahan Double-Booking
+Dashboard Pelanggan dengan Filter Status Reservasi Dinamis (All, Pending, Approved, Done, Rejected)
+Modul Unggah & Preview Bukti Transfer Pembayaran
+Ekspor Bukti Booking Resmi ke Dokumen PDF (Laravel DomPDF)
+Dashboard Admin dengan Grafik Statistik Reservasi Mingguan & Tren Pendapatan Bulanan
+Manajemen Master Data Lapangan (CRUD Data, Spesifikasi, & Unggah Foto)
+Manajemen Rentang Waktu dan Tarif Lapangan (Field Pricing Management)
+Verifikasi dan Validasi Pembayaran oleh Administrator
+Manajemen Akun dan Hak Akses Pengguna (User Management)
+Generator Laporan Pendapatan dengan Filter Rentang Tanggal & Pencarian Nama Pemesan
+Ekspor Rekap Laporan Keuangan ke Spreadsheet Excel (.xlsx)
+Project Image
+URL Gambar
+text
+/assets/image/Gor-Jayabaya-Kediri.jpg
+(Atau gunakan tangkapan layar halaman utama: /projects/reservasi-gor-jayabaya.png)
+Links
+GitHub
+text
+https://github.com/Fanzirfan27/Reservasi-GOR-Jayabaya
+GitHub Backend
+text
+https://github.com/Fanzirfan27/Reservasi-GOR-Jayabaya
+(Karena menggunakan arsitektur monorepo / Laravel MVC, URL backend sama dengan repository utama)
+Live Demo
+text
+https://...
+(Kosongkan atau beri tanda strip - jika proyek saat ini belum dideploy ke server hosting/VPS publik)
+Settings
+Sort Order
+text
+0
+Private Project
+text
+No (Unchecked)
+MTS HASMAS 
+. Informasi Dasar
+Judul Project
+text
+Sistem Informasi Profil Lembaga Pendidikan & Penerimaan Murid Baru (SPMB) Berbasis Web
+(Alternatif nama spesifik: Portal Profil Sekolah & Sistem PPDB/SPMB Online MTs Hasmas)
+Deskripsi Singkat
+text
+Platform web komprehensif yang mengintegrasikan profil interaktif lembaga pendidikan (Company Profile & CMS) dengan Sistem Penerimaan Murid Baru (SPMB/PPDB) multi-gelombang, pelacakan status pendaftar real-time, manajemen berkas, forum tanya-jawab, serta dashboard analitik pengunjung berbasis Highcharts.
+Kategori
+text
+Web Application
+(Pilihan alternatif jika tersedia di form: Fullstack Web Development / Sistem Informasi)
+Role
+text
+Fullstack Developer
+Status
+text
+Completed
+Tahun
+text
+2025
+(Atau 2026 sesuai tahun penayangan di portofolio Anda)
+Durasi
+text
+3 Bulan
+2. Detail Project
+Overview
+text
+Sistem Informasi Profil Lembaga Pendidikan & Penerimaan Murid Baru (SPMB) adalah aplikasi web all-in-one yang dibangun menggunakan Laravel 11 dan MySQL untuk mendigitalkan seluruh ekosistem informasi sekolah/madrasah. 
+Sistem ini dirancang dalam dua portal utama:
+1. Portal Publik (Front-End): Menghadirkan company profile interaktif yang menampilkan sejarah, visi & misi, program unggulan, direktori lembaga pendidikan afiliasi, berita & agenda kegiatan, pusat download berkas resmi, galeri foto & video, serta forum tanya-jawab (QnA). Portal ini juga dilengkapi sistem pendaftaran siswa baru (SPMB) dan pelatihan secara daring dengan integrasi data wilayah berjenjang serta portal pengecekan status pendaftaran mandiri oleh calon wali murid.
+2. Portal Administrator (Back-End): Menyediakan panel kontrol berbasis RBAC (Role-Based Access Control) untuk memvalidasi berkas dan calon siswa baru, mengekspor data pendaftar ke spreadsheet Excel, mengelola konten publikasi (CMS), mengonfigurasi tema warna & identitas web secara real-time, serta memantau statistik kunjungan harian lewat grafik Highcharts interaktif.
+Problem
+text
+1. Proses pendaftaran siswa baru secara manual/tatap muka memakan waktu, memicu penumpukan berkas fisik, dan rentan terhadap kesalahan input data administratif.
+2. Calon wali murid dan siswa kesulitan memantau tahapan verifikasi berkas dan pengumuman hasil seleksi secara real-time tanpa harus datang langsung ke lokasi.
+3. Keterbatasan media promosi dan informasi digital resmi dalam mempublikasikan program unggulan sekolah, agenda kegiatan, pengumuman, serta prestasi lembaga.
+4. Pengelola sekolah kesulitan merekapitulasi data calon pendaftar dalam jumlah besar untuk keperluan arsip dan pelaporan, serta belum memiliki metrik visual terkait keterjangkauan publik terhadap website institusi.
+Solution
+text
+1. Mengembangkan modul SPMB & pendaftaran pelatihan online dengan formulir terstruktur yang terintegrasi dengan basis data master wilayah Indonesia (Provinsi hingga Desa) untuk validasi data yang presisi.
+2. Menyediakan fitur pelacakan status pendaftaran mandiri (/cek-status) bagi calon siswa menggunakan akun terproteksi, sehingga proses seleksi transparan dan efisien.
+3. Membangun Content Management System (CMS) dinamis untuk pengelolaan berita/artikel berkategori, pengumuman resmi, direktori lembaga pendidikan, galeri dokumentasi media, dan forum interaktif tanya-jawab (QnA).
+4. Mengimplementasikan fitur ekspor rekapitulasi data siswa ke file Excel (.xlsx), modul visualisasi analitik pengunjung dengan grafik interaktif Highcharts, dan sistem kustomisasi tampilan web (warna aksen, logo, dan tata letak) yang dapat diatur langsung oleh superadmin tanpa mengubah kode sumber.
+3. Tech Stack & Features
+Tech Stack
+text
+Laravel 11, PHP 8.2, MySQL, Blade, JavaScript, Bootstrap, Spatie Permission (RBAC), Intervention Image, Highcharts.js, Webpack/Laravel Mix, Datagrid Library, SweetAlert, RESTful Routing
+Features (satu per baris)
+text
+Sistem Penerimaan Murid Baru (SPMB) & Pendaftaran Pelatihan Online Multi-Gelombang
+Formulir Pendaftaran Siswa Bertingkat dengan Integrasi Master Wilayah (Provinsi, Kabupaten, Kecamatan, Desa)
+Portal Pengecekan Status Pendaftaran & Hasil Seleksi Calon Siswa Secara Real-Time
+Manajemen Data Calon Siswa & Calon Pelatihan dengan Alur Verifikasi (Pending, Validated, Rejected)
+Ekspor Data Rekapitulasi Calon Siswa ke Format Dokumen Excel (.xlsx)
+Sistem Autentikasi Multi-Role Berbasis Middleware (Superadmin, Admin, Siswa) Menggunakan Spatie Permission
+Dashboard Administrator Terpadu dengan Grafik Statistik Kunjungan Tahunan (Highcharts.js)
+Sistem Pelacak Kunjungan Harian (Daily Visitor Tracker Counter) Otomatis
+Theme & Identity Customizer (Pengaturan Warna Primer, Topbar, Footer, Tipografi, dan Logo Dinamis)
+Content Management System (CMS) Publikasi Berita, Artikel, dan Program Pendidikan Berbasis Kategori & Tag
+Pusat Pengumuman Resmi dan Modul Unduh Berkas / Dokumen Panduan Sekolah
+Galeri Multimedia Terpadu (Manajemen Album, Galeri Foto Resolusi Tinggi, dan Video Embed)
+Direktori Profil Lembaga Pendidikan & Unit Pendidikan Afiliasi
+Halaman Interaktif Sambutan Pimpinan, Keunggulan Lembaga, dan Counter Data Statistik Lembaga
+Forum Tanya-Jawab (QnA) Interaktif Pengunjung dengan Panel Moderasi Jawaban Administrator
+Optimasi Mesin Pencari (SEO) dengan Dynamic XML Sitemap (sitemap.xml) dan OpenGraph Meta Tags
+4. Project Image, Links & Settings
+URL Gambar
+text
+/projects/mts-hasmas-portal.png
+(Atau upload tangkapan layar halaman utama / slider dari folder public/resources/slider/)
+GitHub
+text
+https://github.com/...
+(Isi dengan tautan repository GitHub proyek Anda)
+GitHub Backend
+text
+https://github.com/...
+(Samakan dengan tautan di atas karena aplikasi menggunakan arsitektur monolitik Laravel MVC)
+Live Demo
+text
+https://mts.hasmas.id
+(Atau beri tanda - jika belum ditautkan ke domain publik)
+Sort Order
+text
+0
+Private Project
+text
+No (Biarkan tidak dicentang agar dapat ditampilkan di portofolio publik Anda)
+8:46 PM
+FLOWPLAY
+Form Portofolio Proyek: FlowPlay
+Informasi Dasar
+Judul Project *
+text
+FlowPlay - Web Game Portal & Developer Ecosystem Platform
+Deskripsi Singkat
+text
+Platform portal game HTML5 berbasis web yang menghubungkan player dan game developer independen, dilengkapi dengan ekosistem monetisasi, integrasi payment gateway Midtrans untuk langganan premium, serta sistem leaderboard & achievement gamification secara real-time.
+Kategori *
+text
+Web Development
+(Opsi lain jika dropdown berbeda: Fullstack Web Application atau Game Platform)
+Role
+text
+Fullstack Developer
+Status
+text
+Completed
+Tahun
+text
+2026
+Durasi
+text
+3 Bulan
+Detail Project
+Overview
+text
+FlowPlay adalah platform portal game berbasis web yang dirancang untuk menjembatani komunitas gamer kasual dan pengembang game independen (indie developers). Platform ini memungkinkan pemain menikmati berbagai game HTML5 instan langsung melalui browser tanpa instalasi tambahan. 
+Bagi developer, FlowPlay menyediakan ekosistem terpadu untuk mengunggah game (berbasis arsip ZIP), melacak analitik sesi permainan, mendapatkan bagi hasil pendapatan (revenue share), serta mengajukan penarikan dana (payout). Platform ini juga dilengkapi sistem langganan Premium dengan payment gateway otomatis, sistem moderasi game multi-level (Super Admin & Admin), serta fitur gamifikasi real-time seperti badge achievements dan leaderboard pertemanan.
+Problem
+text
+1. Pengembang game indie sering kesulitan menemukan wadah publikasi yang memiliki ekosistem monetisasi transparan, analitik performa, dan kurasi yang terstruktur.
+2. Pemain game kasual sering terhambat oleh proses instalasi aplikasi yang memakan memori penyimpanan lokal hanya untuk memainkan game ringan.
+3. Rendahnya tingkat retensi (retention rate) pemain pada platform game web konvensional akibat minimnya fitur sosial, kompetisi, dan sistem reward.
+4. Kerentanan keamanan dan kompleksitas teknis dalam menjalankan game pihak ketiga (third-party scripts) langsung pada platform web.
+Solution
+text
+1. Membangun arsitektur Full-Stack modern yang modular dengan Express.js di sisi backend dan React 19 + Vite + Tailwind CSS di sisi frontend.
+2. Mengimplementasikan fitur Sandbox Iframe terisolasi dengan ekstraksi file ZIP otomatis untuk mengeksekusi game HTML5 dengan aman, cepat, dan responsif (mendukung mode fullscreen).
+3. Mengembangkan ekosistem developer terintegrasi: dashboard metrik analitik, revenue sharing tracking, versioning/revisi game, dan approval workflow payout.
+4. Mengintegrasikan Payment Gateway (Midtrans) dan sistem kupon diskon untuk transaksi langganan akun Premium secara instan dan otomatis.
+5. Membangun fitur gamifikasi dan interaksi sosial real-time menggunakan Socket.io, meliputi sistem pertemanan, leaderboard global & teman, serta leveling & achievement badges (Rookie hingga Elite).
+6. Menerapkan kontrol akses berbasis peran (RBAC) 5 tingkat: Super Admin, Admin, Developer, Player, dan Guest dengan alur kurasi konten yang ketat.
+Tech Stack & Features
+Tech Stack (pisahkan dengan koma)
+text
+React 19, Vite, Tailwind CSS, Express.js, Node.js, MySQL, Socket.io, Midtrans Payment Gateway, JWT, REST API, Multer, Recharts
+Features (satu per baris)
+text
+Eksekusi Game HTML5 Instan di Browser dengan Sandbox Iframe & Fullscreen Mode
+Multi-Role Authentication & Authorization (Super Admin, Admin, Developer, Player, Guest)
+Sistem Langganan Akun Premium terintegrasi Midtrans Payment Gateway
+Manajemen Kupon Diskon dan Kode Promo Pembayaran
+Real-time Leaderboard Global & Friends menggunakan Socket.io
+Sistem Gamifikasi, Achievement Badges, dan Level Progression (Rookie → Elite)
+Fitur Sosial: Sistem Pertemanan, Profil Pemain, dan Kustomisasi Avatar
+Developer Portal: Upload Game ZIP dengan Ekstraksi Otomatis & Manajemen Versi
+Developer Monetization: Pelacakan Pendapatan (Revenue Sharing) & Pengajuan Payout
+Alur Kerja Kurasi & Moderasi Game (Admin Review, Approval, & Revision History)
+Sistem Review, Rating, dan Pelacakan Sesi Waktu Bermain Game
+Content Management System (CMS) Dinamis untuk Berita, FAQ, dan Kebijakan Legal
+Project Image
+URL Gambar
+text
+/projects/flowplay.png
+(Atau upload screenshot tampilan beranda / dashboard FlowPlay)
+Links
+GitHub (Frontend / Repository Utama)
+text
+https://github.com/akhmadgibran/flowplay-project
+GitHub Backend
+text
+https://github.com/akhmadgibran/flowplay-project/tree/main/backend
+Live Demo
+text
+https://github.com/akhmadgibran/flowplay-project
+(Jika sudah di-deploy ke server/Vercel/VPS, masukkan link domain aktifnya)
+Settings
+Sort Order
+text
+1
+Private Project
+text
+[ ] (Jangan dicentang / False)
+TIP
+Detail dokumentasi teknis, struktur API, dan panduan fitur dapat Anda rujuk langsung di 
+README.md
+ serta 
+USER_MANUAL.md
+.
+8:52 PM
+SELCARE
+Informasi Dasar
+Judul Project:
+text
+SELCARE — Smart Elderly Care Ecosystem (Platform Monitoring Kesehatan Kognitif Lansia Berbasis Gamifikasi)
+(Opsi ringkas: SELCARE — Smart Elderly Care Ecosystem)
+Deskripsi Singkat:
+text
+Platform ekosistem digital multi-role berbasis web untuk memantau dan menstimulasi kesehatan kognitif lansia melalui game interaktif HTML5, menghubungkan lansia, petugas posyandu/panti, hingga Dinas Kesehatan dan Dinas Sosial secara terintegrasi.
+Kategori:
+text
+Web Application
+(Opsi lain jika berupa dropdown: Healthcare Tech / Fullstack Web Development)
+Role:
+text
+Fullstack Developer
+Status:
+text
+Completed
+Tahun:
+text
+2026
+Durasi:
+text
+3 Bulan
+2. Detail Project
+Overview:
+text
+SELCARE (Senior / Smart Elderly Care Ecosystem) adalah platform berbasis web yang dikembangkan untuk mendeteksi dini dan memantau penurunan fungsi kognitif pada lansia di Posyandu dan Panti Werdha. Sistem ini menerapkan arsitektur Role-Based Access Control (RBAC) 5 tingkat yang menghubungkan Lansia, Petugas Posyandu/Panti, Dinas Kesehatan (Dinkes), Dinas Sosial (Dinsos), dan Administrator. 
+Lansia disajikan antarmuka ramah lanjut usia untuk memainkan game stimulasi otak berbasis HTML5 yang dimuat secara aman melalui iframe. Skor dan durasi bermain disinkronkan secara otomatis ke backend melalui window.postMessage API, kemudian diolah menjadi indikator status kognitif (Stabil, Perlu Monitoring, atau Penurunan). Data ini disajikan dalam bentuk dashboard analitik individual bagi petugas dan grafik agregat tingkat wilayah bagi instansi dinas terkait.
+Problem:
+text
+- Deteksi dini penurunan kognitif (seperti demensia atau Alzheimer) pada lansia di komunitas sering kali terlambat karena terbatasnya sarana skrining berkala yang menyenangkan dan mudah diakses.
+- Proses pencatatan dan monitoring kesehatan lansia di tingkat Posyandu atau Panti masih dilakukan secara manual dan konvensional berbasis kertas, menyebabkan data terfragmentasi dan sulit ditelusuri riwayatnya.
+- Instansi pemerintah terkait (Dinas Kesehatan dan Dinas Sosial) kesulitan mendapatkan data agregat dan tren kesehatan lansia yang valid serta real-time di tingkat desa/kecamatan untuk dasar perumusan intervensi kebijakan.
+Solution:
+text
+- Mengembangkan Game Engine berbasis web yang mendukung upload file ZIP HTML5 otomatis oleh Admin, ekstraksi sistem file lokal, dan rendering terisolasi via iframe dengan mekanisme penangkapan skor real-time via event postMessage.
+- Menerapkan arsitektur autentikasi hybrid yang inklusif: login simpel berbasis Nomor HP bagi lansia yang didaftarkan langsung oleh petugas, serta registrasi berbasis verifikasi OTP (Email & WhatsApp Fonnte API) dan approval Admin untuk petugas/dinas.
+- Membangun dashboard analitik multi-role berbasis Chart.js: Petugas dapat memonitor progres kognitif per individu lansia di wilayahnya, sementara Dinkes dan Dinsos memantau tren kesehatan agregat dan tingkat partisipasi di tingkat wilayah.
+- Merancang backend berkinerja tinggi dan aman menggunakan Express.js, TypeScript, dan Prisma ORM dengan relasi database MariaDB/MySQL yang dilengkapi integritas data ($transaction), proteksi brute force (Rate Limiter), Helmet security headers, dan pengujian otomatis 48 test case E2E (Jest & Supertest).
+3. Tech Stack & Features
+Tech Stack: (format dipisahkan dengan koma)
+text
+Next.js 16, React 19, TypeScript, Node.js, Express.js 5, Prisma ORM 7, MySQL, MariaDB, Tailwind CSS v4, Chart.js, JWT, Bcrypt, Multer, Unzipper, Swagger, Jest, Supertest
+Features: (satu per baris)
+text
+Autentikasi Multi-Role & RBAC (Admin, Petugas, Lansia, Dinkes, Dinsos) dengan JWT dan verifikasi OTP ganda (Email SMTP & WhatsApp API)
+Onboarding & Registrasi Lansia terpadu oleh Petugas menggunakan Database Transaction ($transaction) untuk mencegah orphaned data
+Game Engine HTML5 dengan upload otomatis file .ZIP oleh Admin, auto-extract ke direktori publik, dan rendering aman via iframe
+Sinkronisasi Skor Real-Time dari game HTML5 ke REST API menggunakan komunikasi browser window.postMessage
+Algoritma Penilaian Status Kognitif dinamis berdasarkan rata-rata skor, frekuensi bermain, dan ambang batas (Score Threshold) yang dapat dikonfigurasi
+Manajemen Akses Game (Game Availability & Assignment): Petugas dapat menugaskan atau mencabut akses game spesifik untuk lansia tertentu
+Dashboard Monitoring Individual bagi Petugas untuk memantau grafik riwayat bermain, indikator tren kognitif, dan pencatatan riwayat kondisi fisik
+Dashboard Analitik Agregat Wilayah bagi Dinkes dan Dinsos untuk melihat sebaran status kesehatan kognitif dan evaluasi program pembinaan
+Manajemen Wilayah & Faskes (Panti Werdha & Posyandu) terintegrasi pada level Desa dan Kecamatan
+Admin Control Panel untuk approval pengguna, manajemen hak akses, audit user, dan pengelolaan katalog game
+Keamanan API Berlapis dengan Helmet HTTP Headers, Rate Limiting terpisah (Auth & General API), Restrictive CORS, dan Password Hashing (Bcrypt)
+Dokumentasi API Interaktif menggunakan Swagger / OpenAPI 3.0 dan 48 Automated End-to-End Test Cases dengan Jest & Supertest
+4. Project Image, Links & Settings
+Project Image (URL Gambar):
+text
+/projects/selcare.png
+(Atau upload screenshot tampilan Dashboard / Halaman Game SELCARE)
+GitHub (Frontend / Monorepo):
+text
+https://github.com/bimaibra/lansia-project
+GitHub Backend:
+text
+https://github.com/bimaibra/lansia-project/tree/main/server
+Live Demo:
+text
+https://...
+(Kosongkan atau isi jika sudah dideploy ke Vercel / VPS / Railway)
+Sort Order:
+text
+0
+Private Project:
+text
+Tidak dicentang (Public)
+BUMDES
+Informasi Dasar
+Judul Project:
+text
+AgriBUMDes — Sistem Informasi Manajemen Budidaya Bibit, Pemetaan Lahan GIS, & Rantai Pasok Terintegrasi BUMDes
+(Opsi ringkas: AgriBUMDes — Sistem Budidaya & Rantai Pasok Bibit Berbasis GIS)
+Deskripsi Singkat:
+text
+Platform ekosistem multi-platform (Web Dashboard & Mobile App) untuk mendigitalisasi siklus budidaya bibit, pemetaan petak lahan berbasis Sistem Informasi Geografis (GIS/Polygon), alokasi & realisasi panen bertahap, manajemen stok siap jual, serta transparansi pelaporan operasional bagi BUMDes dan Pemerintah Desa.
+Kategori:
+text
+Web & Mobile Application
+(Opsi pilihan lain di form: Agri-Tech / Enterprise System atau Fullstack Web & Mobile Development)
+Role:
+text
+Fullstack Developer
+Status:
+text
+Completed
+Tahun:
+text
+2026
+Durasi:
+text
+3 Bulan
+2. Detail Project
+Overview:
+text
+AgriBUMDes adalah sistem terpadu yang dirancang untuk mengoptimalkan unit usaha budidaya bibit pertanian/perkebunan (seperti bibit tebu) yang dikelola oleh Badan Usaha Milik Desa (BUMDes). Sistem ini mengintegrasikan Web Dashboard (Next.js 16) untuk manajemen strategis & stakeholder dengan Mobile Application (Flutter) untuk operasional petugas/operator budidaya di lapangan.
+Platform ini mencakup seluruh siklus operasional: mulai dari pendataan lahan dan petani, penjadwalan kegiatan budidaya multi-tahap (olah tanah, tanam, perawatan), pemetaan petak lahan interaktif berbasis GIS (Polygon & GeoJSON) dengan indikator warna status panen dinamis, hingga pemrosesan order panen bibit bertahap. Sistem juga dilengkapi modul akuntabilitas dan konsistensi data khusus Pemerintah Desa (read-only) untuk menjamin transparansi dividen serta audit operasional desa.
+Problem:
+text
+1. Pencatatan Operasional Manual: Pendataan petak lahan, jadwal pemeliharaan bibit, dan riwayat panen sebelumnya dilakukan menggunakan buku manual atau spreadsheet terpisah yang rentan hilang dan tidak konsisten.
+2. Karakteristik Panen Bertahap (Non-Serentak): Panen bibit tidak dilakukan serentak melainkan bertahap sesuai pesanan. Sulit bagi pengelola mengetahui petak mana yang masih ada tanamannya, sedang dipanen sebagian (ratoon/tahap lanjut), atau sudah selesai panen tanpa inspeksi lapangan langsung.
+3. Diskrepansi Stok & Realisasi Panen: Sering terjadi selisih antara estimasi bibit di lahan, kuota pesanan pembeli, dan realisasi timbang riil di lapangan, yang berisiko merugikan BUMDes.
+4. Minimnya Transparansi Stakeholder: Pemerintah Desa selaku penyerta modal kesulitan memantau produktivitas lahan, omzet penjualan bibit, dan mutasi stok secara real-time dan terverifikasi.
+Solution:
+text
+1. Arsitektur Multi-Platform Terpadu: Mengembangkan Web Dashboard berbasis Next.js 16 untuk Admin BUMDes & Pemdes serta Mobile App berbasis Flutter untuk Operator Lapangan yang terhubung melalui RESTful API backend Node.js (Express & Sequelize).
+2. Pemetaan Petak Lahan Berbasis SIG (Leaflet & Polygon GeoJSON): Menampilkan peta petak lahan interaktif dengan kode warna dinamis (Hijau: fase tumbuh/belum panen, Kuning: panen bertahap, Merah/Abu: panen selesai/siap siklus baru) lengkap dengan popup detail produktivitas dan riwayat panen per petak.
+3. Manajemen Inventori Bertingkat & Transaksional: Menerapkan skema pencatatan stok bertingkat (Asumsi Bibit Siap Jual di Lahan -> Stok Terkunci/Reserved Order -> Stok Siap Jual/Gudang) yang dilindungi oleh Database ACID Transactions (Sequelize Transactions) untuk mencegah selisih stok saat realisasi.
+4. Realisasi Lapangan Berbasis Mobile & GPS: Memfasilitasi operator lapangan untuk mencatat input realisasi timbangan panen dan melampirkan dokumentasi foto langsung dari kamera smartphone.
+5. Dashboard Transparansi & Ekspor Laporan: Menyediakan portal analitik Pemerintah Desa dengan proteksi read-only, log aktivitas audit lengkap, visualisasi konsistensi data, serta fitur ekspor laporan ke format Excel (.xlsx) dan PDF resmi.
+3. Tech Stack & Features
+Tech Stack:
+text
+Next.js 16, React 19, Flutter, Dart, Node.js, Express.js, Sequelize ORM, MySQL, Tailwind CSS, Leaflet GIS, Chart.js, Firebase Cloud Messaging, REST API
+Features (satu per baris):
+text
+Pemetaan Petak Lahan Interaktif SIG (Polygon & GeoJSON) dengan Indikator Warna Status Panen (Leaflet & Flutter Map)
+Manajemen Master Data Lahan, Petani Pengelola, dan Varietas Bibit Pertanian
+Penjadwalan & Monitoring Siklus Tanam Multi-Tahap (Persiapan Lahan, Tanam, Pemupukan, Perawatan, Panen)
+Sistem Order & Alokasi Kuota Panen Bibit (Harvest Order) Lintas Petak Lahan
+Aplikasi Mobile Operator Lapangan untuk Realisasi Panen, Input Data Lapangan, dan Tracking GPS
+Dokumentasi Foto Lapangan Langsung dari Kamera Mobile untuk Verifikasi Aktivitas dan Kondisi Tanaman
+Sistem Manajemen Stok Bertingkat: Asumsi Bibit Siap Jual, Kuota Reserved, dan Stok Gudang Siap Jual
+Pencatatan Transaksi Penjualan Bibit (Direct Sale & Realization Delivery) Terintegrasi
+Dashboard Transparansi Khusus Pemerintah Desa (Read-Only) untuk Pengawasan Dividen dan Produktivitas
+Modul Monitoring Konsistensi Data dan Jejak Audit Aktivitas (Activity Logs) untuk Akuntabilitas
+Ekspor Laporan Operasional, Produktivitas Lahan, dan Penjualan ke Format Excel (.xlsx) dan PDF
+Push Notification Real-Time via Firebase Cloud Messaging (FCM) untuk Penugasan Tugas Operator Lapangan
+Keamanan Berlapis dengan JWT Authentication, Role-Based Access Control (RBAC), Helmet, dan Rate Limiting
+Dokumentasi API Terstandarisasi menggunakan Swagger / OpenAPI 3.0
+4. Project Image, Links & Settings
+Project Image (URL Gambar):
+text
+/projects/bumdes.png
+(Atau upload screenshot tampilan Peta SIG Lahan atau Dashboard Admin)
+GitHub (Repository):
+text
+https://github.com/akhmadgibran/bumdes
+GitHub Backend:
+text
+https://github.com/akhmadgibran/bumdes/tree/main/backend
+Live Demo:
+text
+https://...
+(Dapat dikosongkan jika proyek bersifat internal/local staging)
+Sort Order:
+text
+0
+Private Project:
+text
+Tidak dicentang (Public)
+WEB PROFILE DAN SIAKAD SPP MTS 
+. Informasi Dasar
+Judul Project:
+text
+EduProfile & SIAKAD — Web Profil Sekolah Interaktif & Sistem Manajemen Pembayaran SPP Terintegrasi QR-Invoice
+(Opsi alternatif ringkas: Web Profil Sekolah & Portal Administrasi SPP Siswa (SIAKAD))
+Deskripsi Singkat:
+text
+Platform web terpadu untuk institusi pendidikan (SMP NU Annahdloh) yang menggabungkan portal profil publik ramah SEO dengan Sistem Informasi Akademik & Keuangan (SIAKAD). Dilengkapi modul billing SPP & iuran sekolah (LKS/Seragam) otomatis, portal mandiri siswa berbasis NISN, serta cetak kwitansi digital PDF berverifikasi QR Code TTE.
+Kategori:
+text
+Web Application
+(Opsi lain di dropdown: Education / School System atau Fullstack Web Development)
+Role:
+text
+Fullstack Developer
+Status:
+text
+Completed
+Tahun:
+text
+2026
+Durasi:
+text
+3 Bulan
+2. Detail Project
+Overview:
+text
+EduProfile & SIAKAD merupakan sistem informasi berbasis web yang dirancang khusus untuk memodernisasi kehadiran digital dan tata kelola administrasi sekolah (SMP NU Annahdloh). Sistem ini menyatukan dua kebutuhan krusial institusi: etalase informasi publik (Public School Profile) dan efisiensi manajemen keuangan kesiswaan (SIAKAD Keuangan).
+Di sisi publik, website menyajikan arsitektur informasi lengkap yang mencakup profil kelembagaan, sambutan kepala sekolah, visi-misi, fasilitas, direktori pendidik, kalender akademik, etalase prestasi siswa (Hall of Fame), berita, pengumuman, hingga galeri kegiatan yang teroptimasi secara SEO melalui generator Sitemap XML otomatis.
+Di sisi internal, sistem menyediakan portal mandiri siswa berbasis NISN untuk transparansi tagihan keuangan, serta Admin Dashboard komprehensif bagi staf Tata Usaha dan Bendahara. Admin dapat mengelola konten website (CMS), master data siswa, hingga billing engine otomatis untuk tagihan SPP bulanan dan iuran berkala (Seragam & LKS). Transaksi keuangan didukung dengan fitur cetak kwitansi PDF otomatis (DomPDF) yang dilengkapi pengaman Tanda Tangan Elektronik (TTE) berbasis QR Code (Chillerlan QR) untuk menjamin validitas dokumen tanpa tanda tangan basah manual.
+Problem:
+text
+1. Keterbatasan Informasi Publik: Publikasi prestasi, profil tenaga pendidik, dan agenda sekolah masih dilakukan secara konvensional dan tercecer di media sosial tanpa sentralisasi informasi resmi yang kredibel dan ramah mesin pencari (SEO).
+2. Pencatatan Keuangan Manual: Pengelolaan tagihan SPP dan iuran pendukung (buku LKS & seragam) masih mengandalkan buku besar fisik atau spreadsheet terpisah, memicu risiko duplikasi data, selisih perhitungan, dan lambatnya rekapitulasi tunggakan.
+3. Minimnya Transparansi Bagi Siswa & Wali: Orang tua siswa kerap kesulitan mengetahui rincian histori tagihan yang sudah terbayar maupun tunggakan berjalan secara real-time.
+4. Pembuatan Bukti Pembayaran Tidak Efisien: Pembuatan kwitansi cetak fisik memerlukan tanda tangan basah dan stempel manual yang memakan waktu, rentan rusak/hilang, dan sulit diverifikasi keasliannya.
+Solution:
+text
+1. Portal Sekolah Responsif & SEO-Friendly: Membangun website profil modern dengan Tailwind CSS v4, navigasi modular, dan generator dinamis 'sitemap.xml' untuk pengindeksan instan di Google Search.
+2. Automated Billing Engine: Mengembangkan modul auto-generator tagihan SPP massal per kelas/tingkat ajaran dan tarif fleksibel untuk iuran non-SPP, memangkas proses pembuatan tagihan ratusan siswa menjadi hitungan detik.
+3. Portal Mandiri Siswa (Student Dashboard): Mengimplementasikan autentikasi aman berbasis NISN bagi siswa/wali untuk memantau ringkasan tagihan, status lunas, notifikasi tunggakan, dan riwayat pembayaran kapan saja.
+4. Digital Invoicing dengan QR Code TTE: Mengintegrasikan library DomPDF dan Chillerlan PHP-QRCode untuk mencetak kwitansi/slip tagihan digital resmi berformat PDF yang memuat QR Code verifikasi identitas bendahara/tata usaha sebagai tanda tangan sah elektronik.
+5. Keamanan Aplikasi Tingkat Tinggi: Menerapkan arsitektur keamanan sesuai standar OWASP (Form Request Validation, proteksi IDOR via Policy, hashing Bcrypt, Rate Limiting pada login, pencegahan XSS/CSRF, dan caching konfigurasi institusi).
+3. Tech Stack & Features
+Tech Stack:
+text
+Laravel, PHP, MySQL, Tailwind CSS, Vite, DomPDF, PHP-QRCode, Blade Templating, REST API
+Features (satu per baris):
+text
+Web Profil Sekolah Modern dengan Navigasi Modular (Profil, Akademik, Kesiswaan, Informasi, Media, Kontak)
+Dynamic XML Sitemap Generator (/sitemap.xml) untuk Optimasi Indeks Mesin Pencari (Google SEO)
+Pusat Informasi & Publikasi: Berita Sekolah dengan Rich Text, Pengumuman Resmi dengan Lampiran Unduhan
+Direktori Guru & Tenaga Kependidikan Interaktif serta Galeri Sarana Prasarana (Fasilitas)
+Etalase Prestasi Siswa (Hall of Fame) dan Galeri Kegiatan Ekstrakurikuler Sekolah
+Galeri Dokumentasi Foto & Integrasi Pemutar Video Kegiatan Sekolah
+Buku Tamu / Formulir Kontak Interaktif dengan Integrasi Google Maps & Direct WhatsApp Chat
+Portal Siswa Berbasis NISN: Dashboard Riwayat & Status Tagihan Keuangan Siswa Real-Time
+Fitur Ganti Password Akun Mandiri Siswa dengan Validasi Keamanan
+Dashboard Admin & Tata Usaha Komprehensif dengan Statistik Real-Time Siswa, Guru, Pesan Masuk, & SPP
+Billing Engine SPP Bulanan: Konfigurasi Tarif per Kelas & Fitur Batch Auto-Generate Tagihan Massal
+Monitoring & Rekapitulasi Tagihan SPP dengan Filter Periode (Bulan & Tahun) serta Status Pembayaran
+Fitur Blast Pengingat (Reminder) Tagihan SPP Belum Lunas ke Dashboard Akun Siswa
+Modul Pembayaran Khusus (Non-SPP): Pengelolaan Iuran Seragam Sekolah dan Buku Paket / LKS
+Generator Invoice & Kwitansi Pembayaran Resmi Format PDF Otomatis (DomPDF)
+Verifikasi Keabsahan Dokumen Digital Menggunakan QR Code Tanda Tangan Elektronik (TTE) Bendahara
+Manajemen Data Induk Siswa (CRUD Data Siswa, Kelas, Status Aktif, dan Reset Password Akun)
+Pengaturan Identitas Sekolah (School Settings) Terpusat yang Dioptimasi dengan Cache Engine
+Keamanan Berlapis: Proteksi CSRF, Anti-XSS, Form Request Validation, Brute-Force Rate Limiting, & Bcrypt Hashing
+4. Project Image, Links & Settings
+Project Image (URL Gambar):
+text
+/projects/web-profile-sekolah.png
+(Atau unggah tangkapan layar beranda website sekolah / dashboard admin SPP)
+GitHub:
+text
+https://github.com/Fanzirfan27/web-profile-sekolah-siakad
+GitHub Backend:
+text
+https://github.com/Fanzirfan27/web-profile-sekolah-siakad
+Live Demo:
+text
+https://...
+(Dapat diisi URL hosting / demo Anda jika sudah online, atau dikosongkan sementara)
+Sort Order:
+text
+0
+Private Project:
+text
+Tidak dicentang (Public)
+9:17 PM
