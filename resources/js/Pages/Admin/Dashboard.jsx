@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Head, Link, router, usePage } from '@inertiajs/react';
 import {
     Plus, Pencil, Trash2, LogOut, FolderOpen, ExternalLink,
-    Search, Eye, ChevronDown, X, LayoutDashboard, Lock, Globe
+    Search, Eye, ChevronDown, X, LayoutDashboard, Lock, Globe,
+    FileUp, CheckCircle2, AlertCircle
 } from 'lucide-react';
 import { GithubIcon } from '../../Components/Icons';
 
@@ -12,6 +13,9 @@ export default function Dashboard({ projects = [] }) {
     const [filterCategory, setFilterCategory] = useState('');
     const [showDeleteModal, setShowDeleteModal] = useState(null);
     const [toast, setToast] = useState(null);
+    const [cvFile, setCvFile] = useState(null);
+    const [cvUploading, setCvUploading] = useState(false);
+    const [cvToast, setCvToast] = useState(null); // { type: 'success'|'error', msg }
 
     useEffect(() => {
         if (flash?.success) {
@@ -20,6 +24,33 @@ export default function Dashboard({ projects = [] }) {
             return () => clearTimeout(timer);
         }
     }, [flash?.success]);
+
+    useEffect(() => {
+        if (flash?.cv_success) {
+            setCvToast({ type: 'success', msg: flash.cv_success });
+            setCvFile(null);
+            const timer = setTimeout(() => setCvToast(null), 3500);
+            return () => clearTimeout(timer);
+        }
+    }, [flash?.cv_success]);
+
+    const handleCvUpload = () => {
+        if (!cvFile) return;
+        setCvUploading(true);
+        const formData = new FormData();
+        formData.append('cv_file', cvFile);
+        formData.append('_token', document.querySelector('meta[name="csrf-token"]')?.content || '');
+        router.post('/admin/cv/upload', formData, {
+            forceFormData: true,
+            onSuccess: () => setCvUploading(false),
+            onError: (errors) => {
+                setCvUploading(false);
+                const msg = Object.values(errors)[0] || 'Upload gagal.';
+                setCvToast({ type: 'error', msg });
+                const timer = setTimeout(() => setCvToast(null), 3500);
+            },
+        });
+    };
 
     const safeProjects = projects || [];
     const categories = [...new Set(safeProjects.map(p => p.category).filter(Boolean))];
@@ -79,24 +110,112 @@ export default function Dashboard({ projects = [] }) {
                     </div>
 
                     {/* Nav */}
-                    <nav className="flex-1 p-4">
-                        <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#475569' }}>
-                            Menu
-                        </p>
-                        <a href="/admin"
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
-                            style={{
-                                background: 'rgba(99, 102, 241, 0.1)',
-                                color: '#818cf8',
-                                border: '1px solid rgba(99, 102, 241, 0.15)',
-                            }}>
-                            <FolderOpen className="w-4 h-4" />
-                            Projects
-                            <span className="ml-auto text-xs px-2 py-0.5 rounded-full"
-                                style={{ background: 'rgba(99, 102, 241, 0.2)', color: '#a5b4fc' }}>
-                                {safeProjects.length}
-                            </span>
-                        </a>
+                    <nav className="flex-1 p-4 flex flex-col gap-4">
+                        <div>
+                            <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#475569' }}>
+                                Menu
+                            </p>
+                            <a href="/admin"
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                                style={{
+                                    background: 'rgba(99, 102, 241, 0.1)',
+                                    color: '#818cf8',
+                                    border: '1px solid rgba(99, 102, 241, 0.15)',
+                                }}>
+                                <FolderOpen className="w-4 h-4" />
+                                Projects
+                                <span className="ml-auto text-xs px-2 py-0.5 rounded-full"
+                                    style={{ background: 'rgba(99, 102, 241, 0.2)', color: '#a5b4fc' }}>
+                                    {safeProjects.length}
+                                </span>
+                            </a>
+                        </div>
+
+                        {/* CV Upload Panel */}
+                        <div className="rounded-xl p-4" style={{
+                            background: 'rgba(6, 182, 212, 0.05)',
+                            border: '1px solid rgba(6, 182, 212, 0.15)',
+                        }}>
+                            <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#475569' }}>
+                                CV / Resume
+                            </p>
+
+                            {/* Current CV link */}
+                            <a
+                                href="/cv-irfan.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 text-xs mb-3 transition-all duration-200"
+                                style={{ color: '#67e8f9' }}
+                                onMouseEnter={e => e.currentTarget.style.color = '#a5f3fc'}
+                                onMouseLeave={e => e.currentTarget.style.color = '#67e8f9'}
+                            >
+                                <ExternalLink className="w-3 h-3" />
+                                Lihat CV saat ini
+                            </a>
+
+                            {/* File picker */}
+                            <label
+                                htmlFor="cv-file-input"
+                                className="flex items-center justify-center gap-2 w-full py-2 rounded-lg text-xs cursor-pointer transition-all duration-200 mb-2"
+                                style={{
+                                    background: cvFile ? 'rgba(6, 182, 212, 0.12)' : 'rgba(6, 182, 212, 0.06)',
+                                    border: `1px dashed ${cvFile ? '#22d3ee' : 'rgba(6, 182, 212, 0.3)'}`,
+                                    color: cvFile ? '#22d3ee' : '#64748b',
+                                }}
+                            >
+                                <FileUp className="w-3.5 h-3.5" />
+                                {cvFile ? cvFile.name : 'Pilih file PDF'}
+                            </label>
+                            <input
+                                id="cv-file-input"
+                                type="file"
+                                accept=".pdf,application/pdf"
+                                className="hidden"
+                                onChange={e => setCvFile(e.target.files[0] || null)}
+                            />
+
+                            {/* Upload button */}
+                            <button
+                                onClick={handleCvUpload}
+                                disabled={!cvFile || cvUploading}
+                                className="w-full flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition-all duration-200"
+                                style={{
+                                    background: cvFile && !cvUploading
+                                        ? 'linear-gradient(135deg, #0891b2, #06b6d4)'
+                                        : 'rgba(6, 182, 212, 0.08)',
+                                    color: cvFile && !cvUploading ? '#ffffff' : '#475569',
+                                    cursor: cvFile && !cvUploading ? 'pointer' : 'not-allowed',
+                                    boxShadow: cvFile && !cvUploading ? '0 4px 12px rgba(6, 182, 212, 0.3)' : 'none',
+                                }}
+                            >
+                                <FileUp className="w-3.5 h-3.5" />
+                                {cvUploading ? 'Mengupload...' : 'Upload CV Baru'}
+                            </button>
+
+                            {/* CV Toast inline */}
+                            {cvToast && (
+                                <div
+                                    className="flex items-center gap-2 mt-2 px-3 py-2 rounded-lg text-xs"
+                                    style={{
+                                        background: cvToast.type === 'success'
+                                            ? 'rgba(16, 185, 129, 0.12)'
+                                            : 'rgba(239, 68, 68, 0.12)',
+                                        color: cvToast.type === 'success' ? '#34d399' : '#f87171',
+                                        border: `1px solid ${
+                                            cvToast.type === 'success'
+                                                ? 'rgba(16, 185, 129, 0.25)'
+                                                : 'rgba(239, 68, 68, 0.25)'
+                                        }`,
+                                    }}
+                                >
+                                    {cvToast.type === 'success'
+                                        ? <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                                        : <AlertCircle className="w-3.5 h-3.5 shrink-0" />}
+                                    {cvToast.msg}
+                                </div>
+                            )}
+                        </div>
                     </nav>
 
                     {/* User */}
