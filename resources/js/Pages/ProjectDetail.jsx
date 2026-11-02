@@ -50,6 +50,45 @@ export default function ProjectDetail({ project, projects = [] }) {
         project.isPrivate === true
     );
 
+    const renderPoints = (text, isProblem = false) => {
+        if (!text) return null;
+        const lines = text
+            .split('\n')
+            .map((l) => l.trim())
+            .filter(Boolean);
+
+        if (lines.length <= 1) {
+            return (
+                <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    {text}
+                </p>
+            );
+        }
+
+        return (
+            <ul className="space-y-3.5">
+                {lines.map((line, idx) => {
+                    const cleaned = line.replace(/^(\d+[\.\)]|\-|\•)\s*/, '');
+                    return (
+                        <li key={idx} className="flex items-start gap-3 text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                            <span
+                                className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-semibold"
+                                style={{
+                                    backgroundColor: isProblem ? 'rgba(245, 158, 11, 0.12)' : 'rgba(16, 185, 129, 0.12)',
+                                    color: isProblem ? '#fbbf24' : '#34d399',
+                                    border: isProblem ? '1px solid rgba(245, 158, 11, 0.25)' : '1px solid rgba(16, 185, 129, 0.25)',
+                                }}
+                            >
+                                {idx + 1}
+                            </span>
+                            <span className="flex-1">{cleaned}</span>
+                        </li>
+                    );
+                })}
+            </ul>
+        );
+    };
+
     return (
         <MainLayout>
             <Head title={`${project.title} — Project Case Study`} />
@@ -302,7 +341,7 @@ export default function ProjectDetail({ project, projects = [] }) {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                         {/* Left / Main Narrative Flow (lg:col-span-8) */}
-                        <div className="lg:col-span-8 space-y-14">
+                        <div className="lg:col-span-8 space-y-12">
                             {/* Overview */}
                             {project.overview && (
                                 <ScrollReveal>
@@ -316,70 +355,88 @@ export default function ProjectDetail({ project, projects = [] }) {
                                         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
                                             About the project
                                         </h2>
-                                        <p className="text-base sm:text-lg leading-relaxed font-normal" style={{ color: 'var(--text-secondary)' }}>
+                                        <p className="text-base sm:text-lg leading-relaxed font-normal whitespace-pre-line" style={{ color: 'var(--text-secondary)' }}>
                                             {project.overview}
                                         </p>
                                     </div>
                                 </ScrollReveal>
                             )}
 
-                            {/* Problem & Solution (Side-by-side comparative layout, not 2 separate isolated cards) */}
+                            {/* Challenge & Solution (Unified Comparative Panel — No bulky isolated cards) */}
                             {(project.problem || project.solution) && (
                                 <ScrollReveal delay={100}>
-                                    <div className="pt-2">
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                            {/* Problem Statement */}
-                                            {project.problem && (
-                                                <div
-                                                    className="p-6 rounded-2xl transition-all"
-                                                    style={{
-                                                        backgroundColor: 'var(--bg-card)',
-                                                        borderLeft: '4px solid #f59e0b',
-                                                        borderTop: '1px solid var(--border-color)',
-                                                        borderRight: '1px solid var(--border-color)',
-                                                        borderBottom: '1px solid var(--border-color)',
-                                                    }}
-                                                >
-                                                    <div className="flex items-center gap-2 text-amber-500 font-semibold text-sm mb-2.5">
-                                                        <AlertTriangle size={17} />
-                                                        <span>The Challenge</span>
-                                                    </div>
-                                                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                                                        {project.problem}
-                                                    </p>
-                                                </div>
-                                            )}
+                                    <div>
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: accentColor }} />
+                                            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: accentColor }}>
+                                                Challenge & Solution
+                                            </span>
+                                        </div>
+                                        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6" style={{ color: 'var(--text-primary)' }}>
+                                            Problem & Architectural Approach
+                                        </h2>
 
-                                            {/* Solution Statement */}
-                                            {project.solution && (
-                                                <div
-                                                    className="p-6 rounded-2xl transition-all"
-                                                    style={{
-                                                        backgroundColor: 'var(--bg-card)',
-                                                        borderLeft: '4px solid #10b981',
-                                                        borderTop: '1px solid var(--border-color)',
-                                                        borderRight: '1px solid var(--border-color)',
-                                                        borderBottom: '1px solid var(--border-color)',
-                                                    }}
-                                                >
-                                                    <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm mb-2.5">
-                                                        <Lightbulb size={17} />
-                                                        <span>The Solution</span>
+                                        <div
+                                            className="rounded-2xl p-6 sm:p-8 backdrop-blur-sm"
+                                            style={{
+                                                backgroundColor: 'var(--bg-card)',
+                                                border: '1px solid var(--border-color)',
+                                            }}
+                                        >
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                                                {/* The Challenge */}
+                                                {project.problem && (
+                                                    <div className="space-y-4">
+                                                        <div className="flex items-center gap-2.5 pb-3 border-b" style={{ borderColor: 'var(--border-color)' }}>
+                                                            <span
+                                                                className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                                                                style={{
+                                                                    backgroundColor: 'rgba(245, 158, 11, 0.12)',
+                                                                    color: '#fbbf24',
+                                                                    border: '1px solid rgba(245, 158, 11, 0.25)',
+                                                                }}
+                                                            >
+                                                                <AlertTriangle size={15} />
+                                                            </span>
+                                                            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+                                                                The Challenge
+                                                            </h3>
+                                                        </div>
+                                                        {renderPoints(project.problem, true)}
                                                     </div>
-                                                    <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                                                        {project.solution}
-                                                    </p>
-                                                </div>
-                                            )}
+                                                )}
+
+                                                {/* The Solution */}
+                                                {project.solution && (
+                                                    <div className="space-y-4">
+                                                        <div className="flex items-center gap-2.5 pb-3 border-b" style={{ borderColor: 'var(--border-color)' }}>
+                                                            <span
+                                                                className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                                                                style={{
+                                                                    backgroundColor: 'rgba(16, 185, 129, 0.12)',
+                                                                    color: '#34d399',
+                                                                    border: '1px solid rgba(16, 185, 129, 0.25)',
+                                                                }}
+                                                            >
+                                                                <Lightbulb size={15} />
+                                                            </span>
+                                                            <h3 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+                                                                The Solution
+                                                            </h3>
+                                                        </div>
+                                                        {renderPoints(project.solution, false)}
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </ScrollReveal>
                             )}
 
-                            {/* Key Features (Clean open grid instead of a boxed card) */}
+                            {/* Key Features (Clean, open checklist without 15 boxed cards) */}
                             {project.features && project.features.length > 0 && (
                                 <ScrollReveal delay={150}>
-                                    <div className="pt-4">
+                                    <div className="pt-2">
                                         <div className="flex items-center justify-between mb-6 pb-3 border-b" style={{ borderColor: 'var(--border-color)' }}>
                                             <h2 className="text-xl sm:text-2xl font-bold flex items-center gap-2.5" style={{ color: 'var(--text-primary)' }}>
                                                 <ListChecks size={22} style={{ color: accentColor }} /> Key Features & Capabilities
@@ -395,26 +452,22 @@ export default function ProjectDetail({ project, projects = [] }) {
                                             </span>
                                         </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3.5">
                                             {project.features.map((feature, i) => (
                                                 <div
                                                     key={i}
-                                                    className="flex items-start gap-3 p-3.5 rounded-xl transition-all hover:translate-x-1"
-                                                    style={{
-                                                        backgroundColor: 'var(--bg-card)',
-                                                        border: '1px solid var(--border-color)',
-                                                    }}
+                                                    className="flex items-start gap-3 py-1.5 transition-colors"
                                                 >
                                                     <span
-                                                        className="flex-shrink-0 w-6 h-6 rounded-lg flex items-center justify-center mt-0.5"
+                                                        className="flex-shrink-0 w-5 h-5 rounded-md flex items-center justify-center mt-0.5"
                                                         style={{
                                                             backgroundColor: `${accentColor}18`,
                                                             color: accentColor,
                                                         }}
                                                     >
-                                                        <CheckCircle2 size={15} />
+                                                        <CheckCircle2 size={13} />
                                                     </span>
-                                                    <span className="text-sm font-medium leading-snug" style={{ color: 'var(--text-secondary)' }}>
+                                                    <span className="text-sm font-medium leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                                         {feature}
                                                     </span>
                                                 </div>
