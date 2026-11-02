@@ -14,6 +14,9 @@ use Inertia\Inertia;
 | Main single-page portfolio and project detail pages.
 */
 
+// CV Download — serves latest CV with no-cache headers
+Route::get('/cv/download', [CvController::class, 'download'])->name('cv.download');
+
 // Home — single-page portfolio with all sections
 Route::get('/', function () {
     $projects = Project::orderBy('sort_order')->get();

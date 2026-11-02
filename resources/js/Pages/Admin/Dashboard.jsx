@@ -15,7 +15,7 @@ export default function Dashboard({ projects = [] }) {
     const [toast, setToast] = useState(null);
     const [cvFile, setCvFile] = useState(null);
     const [cvUploading, setCvUploading] = useState(false);
-    const [cvToast, setCvToast] = useState(null); // { type: 'success'|'error', msg }
+    const [cvToast, setCvToast] = useState(null);
 
     useEffect(() => {
         if (flash?.success) {
@@ -39,15 +39,15 @@ export default function Dashboard({ projects = [] }) {
         setCvUploading(true);
         const formData = new FormData();
         formData.append('cv_file', cvFile);
-        formData.append('_token', document.querySelector('meta[name="csrf-token"]')?.content || '');
         router.post('/admin/cv/upload', formData, {
             forceFormData: true,
+            preserveScroll: true,
             onSuccess: () => setCvUploading(false),
             onError: (errors) => {
                 setCvUploading(false);
                 const msg = Object.values(errors)[0] || 'Upload gagal.';
                 setCvToast({ type: 'error', msg });
-                const timer = setTimeout(() => setCvToast(null), 3500);
+                setTimeout(() => setCvToast(null), 3500);
             },
         });
     };
@@ -142,7 +142,7 @@ export default function Dashboard({ projects = [] }) {
 
                             {/* Current CV link */}
                             <a
-                                href="/cv-irfan.pdf"
+                                href="/cv/download"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 text-xs mb-3 transition-all duration-200"
@@ -193,7 +193,7 @@ export default function Dashboard({ projects = [] }) {
                                 {cvUploading ? 'Mengupload...' : 'Upload CV Baru'}
                             </button>
 
-                            {/* CV Toast inline */}
+                            {/* CV Toast */}
                             {cvToast && (
                                 <div
                                     className="flex items-center gap-2 mt-2 px-3 py-2 rounded-lg text-xs"
