@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CvController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ use Inertia\Inertia;
 
 // CV Download — serves latest CV with no-cache headers
 Route::get('/cv/download', [CvController::class, 'download'])->name('cv.download');
+
+// Contact form — public submission (no auth required)
+Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 
 // Home — single-page portfolio with all sections
 Route::get('/', function () {
@@ -59,4 +63,10 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::post('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
     Route::post('/cv/upload', [CvController::class, 'upload'])->name('cv.upload');
+
+    // Messages
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::patch('/messages/{message}/read', [MessageController::class, 'markRead'])->name('messages.read');
+    Route::delete('/messages/all', [MessageController::class, 'destroyAll'])->name('messages.destroyAll');
+    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
 });

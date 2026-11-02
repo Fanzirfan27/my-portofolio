@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { router, usePage } from '@inertiajs/react';
 import { GithubIcon, LinkedinIcon } from '../Components/Icons';
 import ScrollReveal from '../Components/ScrollReveal';
 import SectionTitle from '../Components/SectionTitle';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
+    const { flash = {} } = usePage().props;
+
     const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
     const [errors, setErrors] = useState({});
-    const [toast, setToast] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMsg, setSuccessMsg] = useState(flash?.contact_success || null);
 
     const validate = () => {
         const newErrors = {};
@@ -28,18 +31,23 @@ export default function Contact() {
         e.preventDefault();
         const newErrors = validate();
         setErrors(newErrors);
-
         if (Object.keys(newErrors).length > 0) return;
 
         setIsSubmitting(true);
 
-        // Simulate sending
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setForm({ name: '', email: '', subject: '', message: '' });
-            setToast({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
-            setTimeout(() => setToast(null), 4000);
-        }, 1500);
+        router.post('/contact', form, {
+            preserveScroll: true,
+            onSuccess: () => {
+                setIsSubmitting(false);
+                setForm({ name: '', email: '', subject: '', message: '' });
+                setSuccessMsg('Pesan berhasil dikirim! Saya akan menghubungi Anda segera.');
+                setTimeout(() => setSuccessMsg(null), 5000);
+            },
+            onError: (serverErrors) => {
+                setIsSubmitting(false);
+                setErrors(serverErrors);
+            },
+        });
     };
 
     const handleChange = (e) => {
@@ -131,6 +139,19 @@ export default function Contact() {
                                 border: '1px solid var(--border-color)',
                             }}
                         >
+                            {/* Success Banner */}
+                            {successMsg && (
+                                <div className="flex items-center gap-2 mb-5 px-4 py-3 rounded-xl text-sm"
+                                    style={{
+                                        background: 'rgba(16, 185, 129, 0.1)',
+                                        border: '1px solid rgba(16, 185, 129, 0.25)',
+                                        color: '#34d399',
+                                    }}>
+                                    <CheckCircle size={16} className="shrink-0" />
+                                    {successMsg}
+                                </div>
+                            )}
+
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                 {/* Name */}
                                 <div>
@@ -238,15 +259,6 @@ export default function Contact() {
                     </ScrollReveal>
                 </div>
             </div>
-
-            {/* Toast */}
-            {toast && (
-                <div className={`toast ${toast.type === 'success' ? 'toast-success' : 'toast-error'}`}>
-                    <span className="flex items-center gap-2">
-                        <CheckCircle size={16} /> {toast.message}
-                    </span>
-                </div>
-            )}
         </section>
     );
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -12,9 +13,11 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('sort_order')->get();
+        $unreadCount = Message::where('is_read', false)->count();
 
         return Inertia::render('Admin/Dashboard', [
-            'projects' => $projects,
+            'projects'    => $projects,
+            'unreadCount' => $unreadCount,
         ]);
     }
 

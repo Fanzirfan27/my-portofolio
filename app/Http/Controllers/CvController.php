@@ -8,57 +8,63 @@ use Illuminate\Support\Facades\Storage;
 class CvController extends Controller
 {
     /**
-     * Serve the latest CV file to the public with no-cache headers.
-     * Works regardless of whether the file is stored in storage or public.
+     * Serve the latest CV file to the public with strict no-cache headers.
      */
     public function download()
     {
-        // Primary: file stored via admin upload in storage/app/cv/
+        $path = null;
+
+        // 1. Primary: file stored via admin upload in storage/app/private/cv/
         if (Storage::disk('local')->exists('cv/cv-irfan.pdf')) {
             $path = Storage::disk('local')->path('cv/cv-irfan.pdf');
-
-            return response()->file($path, [
-                'Content-Type'        => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="cv-irfan.pdf"',
-                'Cache-Control'       => 'no-store, no-cache, must-revalidate, max-age=0',
-                'Pragma'              => 'no-cache',
-                'Expires'             => '0',
-            ]);
+        } elseif (file_exists(public_path('cv-irfan.pdf'))) {
+            // 2. Fallback: file in public folder
+            $path = public_path('cv-irfan.pdf');
         }
 
-        // Fallback: original static file from public folder
-        $publicPath = public_path('cv-irfan.pdf');
-        if (file_exists($publicPath)) {
-            return response()->file($publicPath, [
-                'Content-Type'        => 'application/pdf',
-                'Content-Disposition' => 'inline; filename="cv-irfan.pdf"',
-                'Cache-Control'       => 'no-store, no-cache, must-revalidate, max-age=0',
-                'Pragma'              => 'no-cache',
-                'Expires'             => '0',
-            ]);
+        if (!$path || !file_exists($path)) {
+            abort(404, 'CV tidak ditemukan.');
         }
 
-        abort(404, 'CV tidak ditemukan.');
+        return response()->file($path, [
+            'Content-Type'        => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="cv-irfan.pdf"',
+            'Cache-Control'       => 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0',
+            'Pragma'              => 'no-cache',
+            'Expires'             => 'Sun, 02 Jan 1990 00:00:00 GMT',
+        ]);
     }
 
     /**
-     * Handle CV file upload — replaces the stored CV file.
-     * Stores in storage/app/cv/ so it works on any hosting.
+     * Handle CV file upload — replaces the old CV file in both storage and public.
      */
     public function upload(Request $request)
     {
         $request->validate([
-            'cv_file' => 'required|file|mimes:pdf|max:5120', // max 5 MB
+            'cv_file' => 'required|file|mimes:pdf|max:10240', // max 10 MB
         ]);
 
-        // Delete previous CV from storage if it exists
+        $uploaded = $request->file('cv_file');
+
+        // Delete old file from storage if exists
         if (Storage::disk('local')->exists('cv/cv-irfan.pdf')) {
             Storage::disk('local')->delete('cv/cv-irfan.pdf');
         }
 
-        // Store the new file at storage/app/cv/cv-irfan.pdf
-        $request->file('cv_file')->storeAs('cv', 'cv-irfan.pdf', 'local');
+        // Store new CV file to local storage
+        $uploaded->storeAs('cv', 'cv-irfan.pdf', 'local');
 
-        return back()->with('cv_success', 'CV berhasil diperbarui!');
+        // Also update public/cv-irfan.pdf so direct webserver access also gets the new file
+        try {
+            $publicCv = public_path('cv-irfan.pdf');
+            $storageCv = Storage::disk('local')->path('cv/cv-irfan.pdf');
+            if (file_exists($storageCv)) {
+                copy($storageCv, $publicCv);
+            }
+        } catch (\Throwable $e) {
+            // Ignore if permissions prevent writing to public directory
+        }
+
+        return back()->with('cv_success', 'CV berhasil diperbarui! File lama telah digantikan dengan yang baru.');
     }
 }

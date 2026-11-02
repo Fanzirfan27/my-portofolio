@@ -3,11 +3,11 @@ import { Head, Link, router, usePage } from '@inertiajs/react';
 import {
     Plus, Pencil, Trash2, LogOut, FolderOpen, ExternalLink,
     Search, Eye, ChevronDown, X, LayoutDashboard, Lock, Globe,
-    FileUp, CheckCircle2, AlertCircle
+    FileUp, CheckCircle2, AlertCircle, Inbox
 } from 'lucide-react';
 import { GithubIcon } from '../../Components/Icons';
 
-export default function Dashboard({ projects = [] }) {
+export default function Dashboard({ projects = [], unreadCount = 0 }) {
     const { auth = {}, flash = {} } = usePage().props;
     const [search, setSearch] = useState('');
     const [filterCategory, setFilterCategory] = useState('');
@@ -130,6 +130,33 @@ export default function Dashboard({ projects = [] }) {
                                 </span>
                             </a>
                         </div>
+
+                        {/* Messages Link */}
+                        <a href="/admin/messages"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                            style={{ color: '#64748b' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#818cf8'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#64748b'}>
+                            <Inbox className="w-4 h-4" />
+                            Messages
+                            {unreadCount > 0 && (
+                                <span className="ml-auto text-xs px-2 py-0.5 rounded-full font-bold"
+                                    style={{ background: 'rgba(239, 68, 68, 0.2)', color: '#f87171' }}>
+                                    {unreadCount}
+                                </span>
+                            )}
+                        </a>
+
+                        {/* Public Website Link */}
+                        <a href="/" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                            style={{ color: '#64748b' }}
+                            onMouseEnter={e => e.currentTarget.style.color = '#818cf8'}
+                            onMouseLeave={e => e.currentTarget.style.color = '#64748b'}>
+                            <Globe className="w-4 h-4" />
+                            Lihat Website
+                            <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-50" />
+                        </a>
 
                         {/* CV Upload Panel */}
                         <div className="rounded-xl p-4" style={{
